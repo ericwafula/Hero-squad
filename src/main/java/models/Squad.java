@@ -9,6 +9,7 @@ public class Squad {
     private String mCause;
     private int mMaxSize;
     private boolean mPublished;
+    private int id;
     private static ArrayList<Squad> mInstances = new ArrayList<Squad>();
     private static ArrayList<Hero> mHeroes = new ArrayList<Hero>();
 
@@ -18,6 +19,7 @@ public class Squad {
         this.mMaxSize = 5;
         this.mPublished = false;
         mInstances.add(this);
+        this.id = mInstances.size();
     }
 
     public List<Hero> getHeroes(){
@@ -67,5 +69,16 @@ public class Squad {
         this.mCause = cause;
     }
 
+    public static void clearAllPosts(){
+        mInstances.clear();
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public static Squad findById(int id){
+        return mInstances.get(id - 1);
+    }
 
 }
