@@ -8,22 +8,35 @@ public class Squad {
     private String mName;
     private String mCause;
     private int mMaxSize;
+    private static boolean mHeroExists;
     private static ArrayList<Squad> mInstances = new ArrayList<Squad>();
-    private List<Hero> mHeroes = new ArrayList<Hero>();
+    private static ArrayList<Hero> mHeroes = new ArrayList<Hero>();
 
     public Squad(String name, String cause) {
         this.mName = name;
         this.mCause = cause;
         this.mMaxSize = 5;
+        mHeroExists = false;
         mInstances.add(this);
     }
 
     public List<Hero> getHeroes(){
-        return this.mHeroes;
+        return mHeroes;
     }
 
     public void setHeroes(Hero hero){
-        this.mHeroes.add(hero);
+        mHeroes.add(hero);
+    }
+
+    public boolean doesHeroExist(Hero hero){
+        int counter = 0;
+        for (Hero mHero : mHeroes) {
+            if (mHero.getName().equals(hero.getName())) {
+                counter++;
+            }
+        }
+
+        return counter != 1;
     }
 
     public String getName(){
@@ -39,7 +52,7 @@ public class Squad {
     }
 
     public boolean checkForMaximumMembers(){
-        return this.mHeroes.size() <= this.mMaxSize;
+        return mHeroes.size() <= this.mMaxSize;
     }
 
     public void setName(String name){
