@@ -1,4 +1,4 @@
-#Hero Squad
+# Hero Squad
 #### An app that let's you build a team of super heroes, 06/07/2021
 #### By **Eric Wafula**
 ## Description

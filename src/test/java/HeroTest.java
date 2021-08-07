@@ -19,7 +19,7 @@ public class HeroTest {
 
     @Test
     public void allHeroesContainsAllHeroes_true() {
-        Hero superHero = new Hero("Eric", 26, "Super Coder", "My Patience");
+        Hero superHero = new Hero("Eric", 26, "Super Coder", "My Patienceq");
         Hero secondSuperHero = new Hero("Ilham", 21, "Super Wifie", "Patience");
         assertEquals(true, Hero.getAll().contains(superHero));
         assertEquals(true, Hero.getAll().contains(secondSuperHero));
