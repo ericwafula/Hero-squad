@@ -8,7 +8,7 @@ public class Squad {
     private String mName;
     private String mCause;
     private int mMaxSize;
-    private static boolean mHeroExists;
+    private boolean mPublished;
     private static ArrayList<Squad> mInstances = new ArrayList<Squad>();
     private static ArrayList<Hero> mHeroes = new ArrayList<Hero>();
 
@@ -16,7 +16,7 @@ public class Squad {
         this.mName = name;
         this.mCause = cause;
         this.mMaxSize = 5;
-        mHeroExists = false;
+        this.mPublished = false;
         mInstances.add(this);
     }
 
@@ -26,6 +26,10 @@ public class Squad {
 
     public void setHeroes(Hero hero){
         mHeroes.add(hero);
+    }
+
+    public boolean getPublished(){
+        return this.mPublished;
     }
 
     public boolean doesHeroExist(Hero hero){

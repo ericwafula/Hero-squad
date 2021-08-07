@@ -58,4 +58,10 @@ public class SquadTest {
         avengers.setHeroes(brian);
         assertEquals(false, avengers.doesHeroExist(brian));
     }
+
+    @Test
+    public void getPublished_isFalseAfterInstantiation_false() {
+        Squad avengers = new Squad("Avengers", "Defeat Spartans");
+        assertEquals(false, avengers.getPublished());
+    }
 }
