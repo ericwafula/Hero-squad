@@ -44,4 +44,6 @@ public class Squad {
     public void setCause(String cause){
         this.mCause = cause;
     }
+
+
 }

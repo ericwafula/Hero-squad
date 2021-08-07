@@ -9,4 +9,11 @@ public class SquadTest {
         Squad squad = new Squad(hero, "Vikings", "Defeat spartans");
         assertEquals(true, squad instanceof Squad);
     }
+
+    @Test
+    public void succesFullyGetsHero_true() {
+        Hero hero = new Hero("Eric", 26, "Super Codeer", "Patience");
+        Squad squad = new Squad(hero, "Vikings", "Defeat spartans");
+        assertEquals(true, squad.getHero());
+    }
 }
