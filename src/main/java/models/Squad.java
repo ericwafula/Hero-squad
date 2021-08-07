@@ -1,24 +1,28 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Squad {
-    private Hero mHero;
+//    private Hero mHero;
     private String mName;
     private String mCause;
-    private int mMaxSize;
-    private static ArrayList<Squad> mInstances = new ArrayList<Squad>();
 
-    public Squad(Hero hero, String name, String cause) {
-        this.mHero = hero;
+    private static ArrayList<Squad> mInstances = new ArrayList<Squad>();
+    private List<Hero> mHeroes = new ArrayList<Hero>();
+
+    public Squad(String name, String cause) {
         this.mName = name;
         this.mCause = cause;
         mInstances.add(this);
-        this.mMaxSize = 20;
     }
 
-    public Hero getHero(){
-        return this.mHero;
+    public List<Hero> getHeroes(){
+        return this.mHeroes;
+    }
+
+    public void setHeroes(Hero hero){
+        this.mHeroes.add(hero);
     }
 
     public String getName(){
@@ -33,9 +37,9 @@ public class Squad {
         return mInstances;
     }
 
-    public void setHero(Hero hero){
-        this.mHero = hero;
-    }
+//    public void setHero(Hero hero){
+//        this.mHero = hero;
+//    }
 
     public void setName(String name){
         this.mName = name;
