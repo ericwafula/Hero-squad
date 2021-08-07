@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Hero {
     private String mName;
     private int mAge;
+    private int id;
     private String mSpecialPower;
     public String mWeakness;
 
@@ -16,6 +17,7 @@ public class Hero {
         this.mSpecialPower = specialPower;
         this.mWeakness = weakness;
         mInstances.add(this);
+        this.id = mInstances.size();
     }
 
     public String getName() {
@@ -56,5 +58,13 @@ public class Hero {
 
     public static void clearAllHeroes(){
         mInstances.clear();
+    }
+
+    public int getId(){
+        return this.id;
+    }
+
+    public static Hero findById(int id){
+        return mInstances.get(id - 1);
     }
 }

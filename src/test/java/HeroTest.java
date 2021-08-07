@@ -24,4 +24,11 @@ public class HeroTest {
         assertEquals(true, Hero.getAll().contains(superHero));
         assertEquals(true, Hero.getAll().contains(secondSuperHero));
     }
+
+    @Test
+    public void getId_heroInstantiatesWithAnID_1() throws Exception {
+        Hero superHero = new Hero("Eric", 26, "Super Coder", "My Patienceq");
+        Hero secondSuperHero = new Hero("Ilham", 21, "Super Wifie", "Patience");
+        assertEquals(2, Hero.findById(secondSuperHero.getId()).getId());
+    }
 }

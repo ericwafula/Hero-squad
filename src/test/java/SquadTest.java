@@ -66,7 +66,7 @@ public class SquadTest {
     }
 
     @Test
-    public void getId_heroInstantiatesWithAnID_1() throws Exception {
+    public void getId_squadInstantiatesWithAnID_1() throws Exception {
         Squad.clearAllPosts();
         Squad avengers = new Squad("Avengers", "Defeat Spartans");
         Squad justiceLeague = new Squad("Justice League", "Fight Crime");
