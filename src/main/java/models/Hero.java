@@ -8,6 +8,7 @@ public class Hero {
     private int id;
     private String mSpecialPower;
     public String mWeakness;
+    private boolean mPublished;
 
     public static ArrayList<Hero> mInstances = new ArrayList<Hero>();
 
@@ -16,6 +17,7 @@ public class Hero {
         this.mAge = age;
         this.mSpecialPower = specialPower;
         this.mWeakness = weakness;
+        this.mPublished = false;
         mInstances.add(this);
         this.id = mInstances.size();
     }
@@ -54,6 +56,10 @@ public class Hero {
 
     public static ArrayList<Hero> getAll() {
         return mInstances;
+    }
+
+    public boolean getPublished(){
+        return this.mPublished;
     }
 
     public static void clearAllHeroes(){

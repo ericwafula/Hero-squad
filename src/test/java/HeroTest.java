@@ -31,4 +31,10 @@ public class HeroTest {
         Hero secondSuperHero = new Hero("Ilham", 21, "Super Wifie", "Patience");
         assertEquals(2, Hero.findById(secondSuperHero.getId()).getId());
     }
+
+    @Test
+    public void getPublished_isFalseAfterInstantiation_false() {
+        Hero eric = new Hero("Eric", 26, "Super Coder", "My Patienceq");
+        assertEquals(false, eric.getPublished());
+    }
 }
