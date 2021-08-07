@@ -7,13 +7,14 @@ public class Squad {
 //    private Hero mHero;
     private String mName;
     private String mCause;
-
+    private int mMaxSize;
     private static ArrayList<Squad> mInstances = new ArrayList<Squad>();
     private List<Hero> mHeroes = new ArrayList<Hero>();
 
     public Squad(String name, String cause) {
         this.mName = name;
         this.mCause = cause;
+        this.mMaxSize = 5;
         mInstances.add(this);
     }
 
@@ -37,9 +38,9 @@ public class Squad {
         return mInstances;
     }
 
-//    public void setHero(Hero hero){
-//        this.mHero = hero;
-//    }
+    public boolean checkForMaximumMembers(){
+        return this.mHeroes.size() <= this.mMaxSize;
+    }
 
     public void setName(String name){
         this.mName = name;
