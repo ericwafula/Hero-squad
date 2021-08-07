@@ -53,4 +53,8 @@ public class Hero {
     public static ArrayList<Hero> getAll() {
         return mInstances;
     }
+
+    public static void clearAllHeroes(){
+        mInstances.clear();
+    }
 }
