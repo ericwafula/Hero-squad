@@ -1,5 +1,15 @@
 {{#partial "content"}}
 
+    <h1>Squad list!</h1>
+
+    {{#if squads}} <!--if squads exist, then -->
+    {{#each squads }} <!--loop-->
+    <p>{{ name }} <a href="/squads/{{id}}">read more...</a></p> <!--show-->
+    {{/each}}
+    {{else}} <!--no posts!-->
+    <p>No Squads!</p>
+    {{/if}}
+
     <h1>Add a new Squad:</h1>
 
     <form action="/squads/new" method="POST">
