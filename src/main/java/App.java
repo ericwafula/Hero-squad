@@ -30,5 +30,14 @@ public class App {
             model.put("causes", cause);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/squads/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            int idOfSquadToFind = Integer.parseInt(request.queryParams(":id"));
+            Squad foundSquad = Squad.findById(idOfSquadToFind);
+            model.put("squad",foundSquad);
+
+            return new ModelAndView(model, "squad-detail.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }

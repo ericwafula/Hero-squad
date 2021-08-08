@@ -12,7 +12,7 @@ Make sure you have gradle and spark installed.
 ## Known Bugs
 There are no known bugs at the moment
 ## Technologies Used
-Java, Spark
+Java, Spark, Handlebars, Bootstrap, CSS
 ## Support and contact details
 ericwathome007@gmail.com
 ### License
