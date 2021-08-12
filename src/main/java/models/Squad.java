@@ -52,7 +52,7 @@ public class Squad {
         return this.mName;
     }
 
-    public String getmCause(){
+    public String getCause(){
         return this.mCause;
     }
 
