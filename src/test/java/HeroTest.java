@@ -2,6 +2,8 @@ import models.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+
 import static org.junit.Assert.*;
 
 public class HeroTest {
@@ -45,6 +47,28 @@ public class HeroTest {
         eric.deleteHero();
         assertEquals(1, Hero.getAll().size());
         assertEquals(Hero.getAll().get(0).getId(), 2);
+    }
+
+    @Test
+    public void updateChangesHeroContent() throws Exception {
+        Hero hero = setUpNewHero();
+
+        int formerId = hero.getId();
+        String formerName = hero.getName();
+        int formerAge = hero.getAge();
+        String formerSpecialPower = hero.getSpecialPower();
+        String formerWeakness = hero.getWeakness();
+
+        hero.setName("Ilham");
+        hero.setAge(20);
+        hero.setSpecialPower("Kitchen");
+        hero.setWeakness("Lazyness");
+
+        assertEquals(formerId, hero.getId());
+        assertNotEquals(formerName, hero.getName());
+        assertNotEquals(formerAge, hero.getAge());
+        assertNotEquals(formerSpecialPower, hero.getSpecialPower());
+        assertNotEquals(formerWeakness, hero.getWeakness());
     }
 
     private Hero setUpNewHero(){

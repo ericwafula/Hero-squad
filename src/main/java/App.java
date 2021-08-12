@@ -68,6 +68,46 @@ public class App {
             return new ModelAndView(model, "heroes.hbs");
         }, new HandlebarsTemplateEngine());
 
+        // All Heroes
+        get("/heroes/list", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            ArrayList<Hero> heroes = Hero.getAll();
+
+            model.put("heroes", heroes);
+            return new ModelAndView(model, "allheroes.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/heroes/:id/update", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfHeroToEdit = Integer.parseInt(request.params("id"));
+            Hero editHero = Hero.findById(idOfHeroToEdit);
+            model.put("editHero", editHero);
+            return new ModelAndView(model, "hero-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/heroes/:id/update", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfHeroToEdit = Integer.parseInt(request.params("id"));
+            Hero editHero = Hero.findById(idOfHeroToEdit);
+            String name = request.queryParams("name");
+            int age = Integer.parseInt(request.queryParams("age"));
+            String specialPower = request.queryParams("special-power");
+            String weakness = request.queryParams("weakness");
+
+            editHero.setName(name);
+            editHero.setAge(age);
+            editHero.setSpecialPower(specialPower);
+            editHero.setWeakness(weakness);
+
+            model.put("editHero", editHero);
+            model.put("name", name);
+            model.put("age", age);
+            model.put("specialPower", specialPower);
+            model.put("weakness", weakness);
+
+            return new ModelAndView(model, "hero-success.hbs");
+        }, new HandlebarsTemplateEngine());
+
         // Heroes form
         post("/heroes/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
