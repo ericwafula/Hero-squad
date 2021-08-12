@@ -96,17 +96,25 @@ public class App {
             int age = Integer.parseInt(request.queryParams("age"));
             String specialPower = request.queryParams("special-power");
             String weakness = request.queryParams("weakness");
+            int selectedSquadId = Integer.parseInt(request.queryParams("selected-squad"));
+
+            ArrayList<Squad> allSquads = Squad.getAll();
+
+            Squad selectedSquad = Squad.findById(selectedSquadId);
+            String squadName = selectedSquad.getName();
 
             editHero.setName(name);
             editHero.setAge(age);
             editHero.setSpecialPower(specialPower);
             editHero.setWeakness(weakness);
+            editHero.setSquadMembership(squadName);
 
             model.put("editHero", editHero);
             model.put("name", name);
             model.put("age", age);
             model.put("specialPower", specialPower);
             model.put("weakness", weakness);
+            model.put("squadName", squadName);
 
             return new ModelAndView(model, "hero-success.hbs");
         }, new HandlebarsTemplateEngine());
@@ -118,16 +126,22 @@ public class App {
             int age = Integer.parseInt(request.queryParams("age"));
             String specialPower = request.queryParams("special-power");
             String weakness = request.queryParams("weakness");
+            int selectedSquadId = Integer.parseInt(request.queryParams("selected-squad"));
 
             ArrayList<Squad> allSquads = Squad.getAll();
 
-            Hero newHero = new Hero(name, age, specialPower, weakness);
+            Squad selectedSquad = Squad.findById(selectedSquadId);
+            String squadName = selectedSquad.getName();
+
+            Hero newHero = new Hero(name, age, specialPower, weakness, squadName);
 
             model.put("name", name);
             model.put("age", age);
             model.put("specialPower", specialPower);
             model.put("weakness", weakness);
             model.put("squads", allSquads);
+            model.put("squadName", squadName);
+            model.put("newHero", newHero);
 
             return new ModelAndView(model, "hero-success.hbs");
         }, new HandlebarsTemplateEngine());

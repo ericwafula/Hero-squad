@@ -7,19 +7,26 @@ public class Hero {
     private int mAge;
     private int id;
     private String mSpecialPower;
-    public String mWeakness;
+    private String mWeakness;
     private boolean mPublished;
+    private String mSquadMembership;
 
     public static ArrayList<Hero> mInstances = new ArrayList<Hero>();
 
-    public Hero(String name, int age, String specialPower, String weakness) {
+    public Hero(String name, int age, String specialPower, String weakness, String squadMembership) {
         this.mName = name;
         this.mAge = age;
         this.mSpecialPower = specialPower;
         this.mWeakness = weakness;
         this.mPublished = false;
+        this.mSquadMembership = squadMembership;
+
         mInstances.add(this);
         this.id = mInstances.size();
+    }
+
+    public void setSquadMembership(String membership){
+        this.mSquadMembership = membership;
     }
 
     public String getName() {
