@@ -1,30 +1,5 @@
 {{#partial "content"}}
-
-    <h1>Squad list!</h1>
-
-    {{#if squads}} <!--if squads exist, then -->
-    {{#each squads }} <!--loop-->
-    <p>{{ name }} <a href="/squads/{{id}}">read more...</a></p> <!--show-->
-    {{/each}}
-    {{else}} <!--no posts!-->
-    <p>No Squads!</p>
-    {{/if}}
-
-    <h1>Add a new Squad:</h1>
-
-    <form action="/squads/new" method="POST">
-        <div class="form-group">
-            <label for="squad">Name of Squad</label>
-            <input id="squad" name="squad" type="text" class="form-control" style="margin-bottom: 40px;" placeholder="Enter Squad Name Here...">
-        </div>
-
-        <div class="form-group">
-            <label for="cause">Cause</label>
-            <input id="cause" name="cause" type="text" class="form-control" style="margin-bottom: 40px;" placeholder="Enter Cause Here...">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Add Squad</button>
-    </form>
+    <a href="/squads"><button class="btn btn-primary">View Squads</button></a>
 {{/partial}}
 
 {{> layout.hbs}}
