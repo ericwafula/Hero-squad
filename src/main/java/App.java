@@ -63,7 +63,9 @@ public class App {
         get("/heroes", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             ArrayList<Hero> foundHero = Hero.getAll();
+            ArrayList<Squad> allSquads = Squad.getAll();
             model.put("heroes",foundHero);
+            model.put("squads", allSquads);
 
             return new ModelAndView(model, "heroes.hbs");
         }, new HandlebarsTemplateEngine());
@@ -85,6 +87,7 @@ public class App {
             return new ModelAndView(model, "hero-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        // Heroes form
         post("/heroes/:id/update", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfHeroToEdit = Integer.parseInt(request.params("id"));
@@ -116,13 +119,15 @@ public class App {
             String specialPower = request.queryParams("special-power");
             String weakness = request.queryParams("weakness");
 
+            ArrayList<Squad> allSquads = Squad.getAll();
+
             Hero newHero = new Hero(name, age, specialPower, weakness);
 
             model.put("name", name);
             model.put("age", age);
             model.put("specialPower", specialPower);
             model.put("weakness", weakness);
-
+            model.put("squads", allSquads);
 
             return new ModelAndView(model, "hero-success.hbs");
         }, new HandlebarsTemplateEngine());

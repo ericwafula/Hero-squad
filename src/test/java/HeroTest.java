@@ -71,7 +71,37 @@ public class HeroTest {
         assertNotEquals(formerWeakness, hero.getWeakness());
     }
 
+    @Test
+    public void squad_correctlyInstantiatesSquadObject(){
+        Hero eric = setUpNewHero();
+        Squad avengers = setUpNewSquad();
+        assertEquals(true, avengers instanceof Squad);
+    }
+
+    @Test
+    public void squad_ensuresHeroChoosesASquad(){
+        Hero eric = setUpNewHero();
+        Squad avengers = setUpNewSquad();
+        boolean exists = false;
+        for(Hero hero: avengers.getHeroes()){
+            if (avengers.doesHeroExist(eric)){
+                System.out.println(hero + "exists");
+                exists = true;
+            }
+        }
+
+        if(!exists){
+            avengers.getHeroes().add(eric);
+        }
+        
+        assertEquals(eric, avengers.getHeroes().get(0));
+    }
+
     private Hero setUpNewHero(){
         return new Hero("Eric", 26, "Super Coder", "My Patience");
+    }
+
+    private Squad setUpNewSquad(){
+        return new Squad("Avengers", "Defeat Thanos");
     }
 }
