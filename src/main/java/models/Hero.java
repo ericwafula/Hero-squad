@@ -73,4 +73,8 @@ public class Hero {
     public static Hero findById(int id){
         return mInstances.get(id - 1);
     }
+
+    public void deleteHero(){
+        mInstances.remove(id - 1);
+    }
 }

@@ -37,4 +37,17 @@ public class HeroTest {
         Hero eric = new Hero("Eric", 26, "Super Coder", "My Patienceq");
         assertEquals(false, eric.getPublished());
     }
+
+    @Test
+    public void delete_deleteASpecificHero() throws Exception{
+        Hero eric = setUpNewHero();
+        Hero ilham = new Hero("Ilham", 20, "Super wifie", "Patience");
+        eric.deleteHero();
+        assertEquals(1, Hero.getAll().size());
+        assertEquals(Hero.getAll().get(0).getId(), 2);
+    }
+
+    private Hero setUpNewHero(){
+        return new Hero("Eric", 26, "Super Coder", "My Patience");
+    }
 }
